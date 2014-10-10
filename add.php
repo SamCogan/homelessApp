@@ -6,9 +6,9 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$sql="INSERT INTO reports(date, uid, name, lat, longs)
+$sql="INSERT INTO reports(date, uid, sex, status, lat, longs)
 VALUES
-('$_POST[date]','$_POST[uid]','$_POST[name]','$_POST[lat]','$_POST[long]')";
+('$_POST[date]','$_POST[uid]','$_POST[sex]','$_POST[status]','$_POST[lat]','$_POST[long]')";
 
 if (!mysqli_query($con,$sql))
   {

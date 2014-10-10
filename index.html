@@ -59,16 +59,29 @@
 								<label for="uis">ID</label>
 								<input id="uid" name="uid" />
 								
-								<label for="name">Name</label>
-								<input id="name" name="name" />
+								<fieldset data-role="controlgroup">
+									<legend>Gender</legend>
+									<input type="radio" name="sex" id="male" value="m" required/>
+									<label for="male">Male</label>
+
+									<input type="radio" name="sex" id="female" value="f" required/>
+									<label for="female">Female</label>
+
+								</fieldset>
 								
 								<fieldset data-role="controlgroup">
-									<legend>Fed?</legend>
-									<input type="radio" name="fed" id="fed1" value="y" checked="checked" />
-									<label for="fed1">Fed</label>
+									<legend>Status</legend>
+									<input type="radio" name="stat" id="fed" value="f" required/>
+									<label for="fed">Fed</label>
 
-									<input type="radio" name="fed" id="fed2" value="n"  />
-									<label for="fed2">Unfed</label>
+									<input type="radio" name="stat" id="clothed" value="c" required/>
+									<label for="clothed">Clothed</label>
+									
+									<input type="radio" name="stat" id="both" value="b" required/>
+									<label for="both">Both</label>
+									
+									<input type="radio" name="stat" id="na" value="n" required/>
+									<label for="na">Neither</label>
 
 								</fieldset>
 								
