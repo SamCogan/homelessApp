@@ -1,36 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HTML5 Avoider Game</title>
-		<script src="js/script.js"></script>
-		<link rel="stylesheet" href="css/style.css" />
+	<head>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
 		
-    </head>
-    <body>
-		<form>
-			<input id="lat" name="lat" />
-			<input id="long" name="long" />
-			<button onclick="getLocation()">
-			Click me
-			</button>
-			<script>
+	</head>
+	<body>
+		<div style="width:900px;margin:60px auto;">
+		<form id="myform" action="add.php"  data-ajax="false">
+			<h1>Census Application</h1>
+			<label for="date">Date</label>
+			<input id="date" name="date" />
+			<label for="uis">ID</label>
+			<input id="uid" name="uid" />
+			<label for="name">Name</label>
+			<input id="name" name="name" />
+			<fieldset data-role="controlgroup">
+				<legend>Fed?</legend>
+				<input type="radio" name="fed" id="fed1" value="y" checked="checked" />
+				<label for="fed1">Fed</label>
+
+				<input type="radio" name="fed" id="fed2" value="n"  />
+				<label for="fed2">Unfed</label>
+
+			</fieldset>
+			<fieldset data-role="controlgroup">
+			<legend>Coords</legend>
+				
+				<input id="lat" name="lat" required/>
+				<label for="lat">Latitude</label>
+				
+				<input id="long" name="lat" required/>
+				<label for="long">Longitude</label>
+				
+			</fieldset>
+			<p>Click the button to get your coordinates:</p>
+			<input type="submit" value="Submit form"/>
+		</form>
+		<button onclick="getLocation()" data-ajax="false">Get Coords</button>
+		
+
+		<script>
 		var x = document.getElementById("lat");
 		var y = document.getElementById("long");
+
 		function getLocation() {
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(showPosition);
-			} else {
+			} else { 
 				x.innerHTML = "Geolocation is not supported by this browser.";
 				y.innerHTML = "Geolocation is not supported by this browser.";
 			}
 		}
+
 		function showPosition(position) {
-			x.innerHTML = "Latitude: " + position.coords.latitude + 
-			"<br>Longitude: " + position.coords.longitude; 
-			y.innerHTML = "Latitude: " + position.coords.latitude + 
-			"<br>Longitude: " + position.coords.longitude; 
+			y.innerHTML = "Geolocation is not supported by this browser.";
+			x.value = position.coords.latitude;
+			y.value = position.coords.longitude;
 		}
 		</script>
-		</form>
-    </body>
-</html>
+		</div>
+	</body>
+	</html>
