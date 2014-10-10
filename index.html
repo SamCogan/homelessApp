@@ -7,15 +7,19 @@
 		
 	</head>
 	<body>
+		<div date-role=""
 		<div style="width:900px;margin:60px auto;">
-		<form id="myform" action="add.php"  data-ajax="false">
+		<form id="myform" action="add.php" method="post"  data-ajax="false">
 			<h1>Census Application</h1>
 			<label for="date">Date</label>
 			<input id="date" name="date" />
+			
 			<label for="uis">ID</label>
 			<input id="uid" name="uid" />
+			
 			<label for="name">Name</label>
 			<input id="name" name="name" />
+			
 			<fieldset data-role="controlgroup">
 				<legend>Fed?</legend>
 				<input type="radio" name="fed" id="fed1" value="y" checked="checked" />
@@ -25,16 +29,18 @@
 				<label for="fed2">Unfed</label>
 
 			</fieldset>
+			
 			<fieldset data-role="controlgroup">
 			<legend>Coords</legend>
 				
 				<input id="lat" name="lat" required/>
 				<label for="lat">Latitude</label>
 				
-				<input id="long" name="lat" required/>
+				<input id="long" name="long" required/>
 				<label for="long">Longitude</label>
 				
 			</fieldset>
+			
 			<p>Click the button to get your coordinates:</p>
 			<input type="submit" value="Submit form"/>
 		</form>
