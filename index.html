@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- 1140px Grid styles for IE -->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
+
+		<!-- The 1140px Grid - http://cssgrid.net/ -->
+		<link rel="stylesheet" href="css/1140.css" type="text/css" media="screen" />
+		
+		<!-- Your styles -->
+		<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
+		
+		<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+		<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+		
+		<!--jQuery mobile-->
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
@@ -8,64 +23,124 @@
 	</head>
 	<body>
 		
-		<div style="width:900px;margin:60px auto;">
-		<form id="myform" action="http://samcogan.me/homeless/add.php" method="post"  data-ajax="false">
-			<h1>Census Application</h1>
-			<label for="date">Date</label>
-			<input id="date" name="date" />
+		<div data-role="page" id="menu">
+			<div data-role="header">
+				<h1>Census App</h1>
+				<a href="#main">Main</a>
+				<a href="#notes">Notes</a>
+			</div> 
+			<div data-role="content">
+				<div style="width:250px;height:250px;border:3px dashed white;border-radius:15px;background:red;float:left;">
+					<a href="#main">Main</a>
+				</div>
+				<div style="width:250px;height:250px;border:3px dashed white;border-radius:15px;background:blue;float:right;">
+					<a href="#notes">Notes</a>
+				</div>
+			</div> 
+			<div data-role="footer"><h4>&copy; 2014</h4></div> 
 			
-			<label for="uis">ID</label>
-			<input id="uid" name="uid" />
-			
-			<label for="name">Name</label>
-			<input id="name" name="name" />
-			
-			<fieldset data-role="controlgroup">
-				<legend>Fed?</legend>
-				<input type="radio" name="fed" id="fed1" value="y" checked="checked" />
-				<label for="fed1">Fed</label>
-
-				<input type="radio" name="fed" id="fed2" value="n"  />
-				<label for="fed2">Unfed</label>
-
-			</fieldset>
-			
-			<fieldset data-role="controlgroup">
-			<legend>Coords</legend>
-				
-				<input id="lat" name="lat" required/>
-				<label for="lat">Latitude</label>
-				
-				<input id="long" name="long" required/>
-				<label for="long">Longitude</label>
-				
-			</fieldset>
-			
-			<p>Click the button to get your coordinates:</p>
-			<input type="submit" value="Submit form"/>
-		</form>
-		<button onclick="getLocation()" data-ajax="false">Get Coords</button>
-		
-
-		<script>
-		var x = document.getElementById("lat");
-		var y = document.getElementById("long");
-
-		function getLocation() {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(showPosition);
-			} else { 
-				x.innerHTML = "Geolocation is not supported by this browser.";
-				y.innerHTML = "Geolocation is not supported by this browser.";
-			}
-		}
-
-		function showPosition(position) {
-			y.innerHTML = "Geolocation is not supported by this browser.";
-			x.value = position.coords.latitude;
-			y.value = position.coords.longitude;
-		}
-		</script>
 		</div>
+		
+		<!--<div class="container">
+			<div class="row">
+				<div class="twelvecol">	-->
+					<div data-role="page" id="main">
+						<div data-role="header">
+							<h1>Census App</h1>
+							<a href="#main">Main</a>
+							<a href="#notes">Notes</a>
+						</div>
+						<div data-role="content">
+							<form id="fmain" action="http://samcogan.me/homeless/add.php" method="post"  data-ajax="false">
+								<h1>Census Application</h1>
+								<label for="date">Date</label>
+								<input id="date" name="date" type="date"/>
+								
+								<label for="uis">ID</label>
+								<input id="uid" name="uid" />
+								
+								<label for="name">Name</label>
+								<input id="name" name="name" />
+								
+								<fieldset data-role="controlgroup">
+									<legend>Fed?</legend>
+									<input type="radio" name="fed" id="fed1" value="y" checked="checked" />
+									<label for="fed1">Fed</label>
+
+									<input type="radio" name="fed" id="fed2" value="n"  />
+									<label for="fed2">Unfed</label>
+
+								</fieldset>
+								
+								<fieldset data-role="controlgroup">
+								<legend>Coords</legend>
+									
+									<input id="lat" name="lat" required/>
+									<label for="lat">Latitude</label>
+									
+									<input id="long" name="long" required/>
+									<label for="long">Longitude</label>
+									
+								</fieldset>
+								
+								<p>Click the button to get your coordinates:</p>
+								<input type="submit" value="Submit form"/>
+							</form>
+							<button onclick="getLocation()" data-ajax="false">Get Coords</button>
+						</div>
+						<div data-role="footer"><h4>&copy; 2014</h4></div> 
+					</div>
+					
+					
+					
+					
+					<div data-role="page" id="notes">
+						<div data-role="header">
+							<h1>Census App</h1>
+							<a href="#main">Main</a>
+							<a href="#notes">Notes</a>
+						</div>
+						<div data-role="content">
+							<form id="fnotes" action="http://samcogan.me/homeless/notes.php" method="post"  data-ajax="false">
+								<h1>Census Application</h1>
+								<label for="name">Name</label>
+								<input id="name" name="name" />
+								
+								<label for="note">Note</label>
+								<textarea id="note" name="note">
+								</textarea>
+								
+								<label for="name">Location</label>
+								<input id="loc" name="loc" />
+								
+								<input type="submit" value="Submit form"/>
+							</form>
+						</div>
+						<div data-role="footer">
+							<h4>&copy; 2014</h4>
+						</div> 
+					</div>
+				<!--</div>
+			</div>
+		</div>-->
+		<script>
+			var x = document.getElementById("lat");
+			var y = document.getElementById("long");
+
+			function getLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else { 
+					x.innerHTML = "Geolocation is not supported by this browser.";
+					y.innerHTML = "Geolocation is not supported by this browser.";
+				}
+			}
+
+			function showPosition(position) {
+				y.innerHTML = "Geolocation is not supported by this browser.";
+				x.value = position.coords.latitude;
+				y.value = position.coords.longitude;
+			}
+		</script>
 	</body>
 	</html>

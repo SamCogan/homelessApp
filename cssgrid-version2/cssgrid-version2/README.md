@@ -1,0 +1,1 @@
+This grid system is now [retired](http://andytaylor.me/2013/04/09/1140px-css-grid-retired/). I will leave it up on GitHub for a while, just in case anyone has any dependencies on it. But it will be gone soon. [Read about why](http://andytaylor.me/2013/04/09/1140px-css-grid-retired/).

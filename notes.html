@@ -8,43 +8,47 @@
 	</head>
 	<body>
 		
-		<div style="width:900px;margin:60px auto;">
-		<form id="myform" action="http://samcogan.me/homeless/notes.php" method="post"  data-ajax="false">
-			<h1>Census Application</h1>
-			<label for="name">Name</label>
-			<input id="name" name="name" />
-			
-			<label for="note">Note</label>
-			<textarea id="note" name="note">
-			</textarea>
-			
-			<label for="name">Location</label>
-			<input id="loc" name="loc" />
-			
-			<input type="submit" value="Submit form"/>
-		</form>
-		<button onclick="getLocation()" data-ajax="false">Get Coords</button>
-		
+		<div class="container">
+			<div class="row">
+				<div class="twelvecol">
+					<form id="myform" action="http://samcogan.me/homeless/notes.php" method="post"  data-ajax="false">
+						<h1>Census Application</h1>
+						<label for="name">Name</label>
+						<input id="name" name="name" />
+						
+						<label for="note">Note</label>
+						<textarea id="note" name="note">
+						</textarea>
+						
+						<label for="name">Location</label>
+						<input id="loc" name="loc" />
+						
+						<input type="submit" value="Submit form"/>
+					</form>
+					<button onclick="getLocation()" data-ajax="false">Get Coords</button>
+					
 
-		<script>
-		var x = document.getElementById("lat");
-		var y = document.getElementById("long");
+					<script>
+					var x = document.getElementById("lat");
+					var y = document.getElementById("long");
 
-		function getLocation() {
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(showPosition);
-			} else { 
-				x.innerHTML = "Geolocation is not supported by this browser.";
-				y.innerHTML = "Geolocation is not supported by this browser.";
-			}
-		}
+					function getLocation() {
+						if (navigator.geolocation) {
+							navigator.geolocation.getCurrentPosition(showPosition);
+						} else { 
+							x.innerHTML = "Geolocation is not supported by this browser.";
+							y.innerHTML = "Geolocation is not supported by this browser.";
+						}
+					}
 
-		function showPosition(position) {
-			y.innerHTML = "Geolocation is not supported by this browser.";
-			x.value = position.coords.latitude;
-			y.value = position.coords.longitude;
-		}
-		</script>
+					function showPosition(position) {
+						y.innerHTML = "Geolocation is not supported by this browser.";
+						x.value = position.coords.latitude;
+						y.value = position.coords.longitude;
+					}
+					</script>
+				</div>
+			</div>
 		</div>
 	</body>
 	</html>
