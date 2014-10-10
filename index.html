@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML5 Avoider Game</title>
+		<script src="js/script.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		
+    </head>
+    <body>
+		<form>
+			<input id="lat" name="lat" />
+			<input id="long" name="long" />
+			<button onclick="getLocation()">
+			Click me
+			</button>
+			<script>
+		var x = document.getElementById("lat");
+		var y = document.getElementById("long");
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				x.innerHTML = "Geolocation is not supported by this browser.";
+				y.innerHTML = "Geolocation is not supported by this browser.";
+			}
+		}
+		function showPosition(position) {
+			x.innerHTML = "Latitude: " + position.coords.latitude + 
+			"<br>Longitude: " + position.coords.longitude; 
+			y.innerHTML = "Latitude: " + position.coords.latitude + 
+			"<br>Longitude: " + position.coords.longitude; 
+		}
+		</script>
+		</form>
+    </body>
+</html>
