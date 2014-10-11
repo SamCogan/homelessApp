@@ -16,20 +16,32 @@
 		<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
 		
 		<!--jQuery mobile-->
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css" />
+		<link rel="stylesheet" href="jquery.mobile.flatui.css" />
 		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-		
+		<style>
+		legend,label
+		{
+		font-weight:bold;
+		font-size:150%;
+		}
+		</style>
 	</head>
 	<body>
 		
-		<div data-role="page" id="menu">
+		<div data-role="page" id="menu" data-theme="b">
 			<div data-role="header">
 				<h1>Census App</h1>
-				<a href="#main">Main</a>
-				<a href="#notes">Notes</a>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#main">Main</a></li>
+						<li><a href="#notes">Notes</a></li>
+						<li><a href="#inst">Instructions</a></li>
+					</ul>										
+				</div>
 			</div> 
 			<div data-role="content">
+			
 				<div style="width:250px;height:250px;border:3px dashed white;border-radius:15px;background:red;float:left;">
 					<a href="#main">Main</a>
 				</div>
@@ -44,21 +56,29 @@
 		<!--<div class="container">
 			<div class="row">
 				<div class="twelvecol">	-->
-					<div data-role="page" id="main">
+					<div data-role="page" id="main" data-theme="b">
 						<div data-role="header">
 							<h1>Census App</h1>
-							<a href="#main">Main</a>
-							<a href="#notes">Notes</a>
+							<div data-role="navbar">
+								<ul>
+									<li><a href="#main">Main</a></li>
+									<li><a href="#notes">Notes</a></li>
+									<li><a href="#inst">Instructions</a></li>
+								</ul>										
+							</div>
 						</div>
 						<div data-role="content">
 							<form id="fmain" action="http://samcogan.me/homeless/add.php" method="post"  data-ajax="false">
 								<h1>Census Application</h1>
-								<label for="date">Date</label>
-								<input id="date" name="date" type="date" disabled/>
-								
-								<label for="uis">ID</label>
-								<input id="uid" name="uid" />
-								
+								<fieldset data-role="controlgroup">
+									<legend>Date</legend>
+									<input id="date" name="date" type="date" disabled/>
+								</fieldset>
+								<fieldset data-role="controlgroup">
+									<legend>ID</legend>
+									<label for="uis">ID</label>
+									<input id="uid" name="uid" />
+								</fieldset>
 								<fieldset data-role="controlgroup">
 									<legend>Gender</legend>
 									<input type="radio" name="sex" id="male" value="m" required/>
@@ -107,11 +127,16 @@
 					
 					
 					
-					<div data-role="page" id="notes">
+					<div data-role="page" id="notes" data-theme="b">
 						<div data-role="header">
 							<h1>Census App</h1>
-							<a href="#main">Main</a>
-							<a href="#notes">Notes</a>
+							<div data-role="navbar">
+								<ul>
+									<li><a href="#main">Main</a></li>
+									<li><a href="#notes">Notes</a></li>
+									<li><a href="#inst">Instructions</a></li>
+								</ul>										
+							</div>
 						</div>
 						<div data-role="content">
 							<form id="fnotes" action="http://samcogan.me/homeless/notes.php" method="post"  data-ajax="false">
@@ -164,5 +189,6 @@
 				});
 			document.getElementById('date').value = new Date().toDateInputValue();
 		</script>
+		
 	</body>
 	</html>
